@@ -1,0 +1,32 @@
+/* tela de login */
+
+main {
+    display: flex;
+    width: 100vw;
+}
+
+.formLogin {
+    display: flex;
+    flex-direction: column;
+    margin: 20vh auto;
+    border: 2px solid #cccccc;
+    padding: 20px;
+}
+
+.emailSenha {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.emailSenha input {
+    margin: 0 0 1em;
+}
+
+.manterLogado {
+    display: flex;
+    margin: 0 0 1em;
+    font-weight: 100;
+    font-size: 0.9em;
+    align-items: center;
+}

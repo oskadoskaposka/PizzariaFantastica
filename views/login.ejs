@@ -1,0 +1,20 @@
+<%- include('parts/head2', {title:'Pizzaria Fantastica', css: 'rel=stylesheet type=text/css href=/css/login.css'}); %>
+
+<main>
+    <form action="get" class="formLogin">
+
+        <div class="emailSenha">
+            <input type="email" id="emailUsuario" placeholder="email@dominio.com"/>
+            <input type="password" id="senhaUsuario" placeholder="password"/>
+        </div>
+
+        <div class="manterLogado">
+            <input type="checkbox" name="confirmacao" id="confirmacao" checked>
+            <label for="confirmacao">Manter Logado</label>
+        </div>
+
+        <input type="submit" value="Enviar">
+    </form>
+</main>
+
+<%- include('parts/footer'); %>

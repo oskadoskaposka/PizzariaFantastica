@@ -4,9 +4,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const methodOverride = require('method-override');
+const session = require("express-session")
 
 var pizzasRouter = require('./routes/pizzasRouter');
 var usersRouter = require('./routes/users');
+var loginRouter = require('./routes/login')
 
 var app = express();
 
@@ -14,6 +16,10 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(session({secret: "palavra-chave-secreta-que-ninguem-deve-saber",
+  resave: true,
+  saveUninitialized: false 
+},))
 app.use(logger('dev'));
 app.use(methodOverride('_method'));
 app.use(express.json());
@@ -24,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // arquivos router
 app.use('/', pizzasRouter);
 app.use('/users', usersRouter);
+app.use('/login', loginRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

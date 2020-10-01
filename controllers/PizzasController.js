@@ -2,6 +2,18 @@ const pizzas = require('../database/Pizzas.json')
 
 module.exports = {
     index: (req, res)=>{
+
+        // é a primeira vez que o visitante vem aqui?
+        if(req.session.nVisitas === undefined) {
+            //se sim.......
+            req.session.nVisitas = 1
+            console.log(req.session.nVisitas)
+        } else {
+                // se não 
+                req.session.nVisitas++
+                console.log(req.session.nVisitas)
+        } 
+
         res.render("index",{pizzas});
     },
     show: (req, res) => {
@@ -37,5 +49,5 @@ module.exports = {
         pizzas.push(pizza);
 
         res.redirect('/');
-    }
+    }    
 }
